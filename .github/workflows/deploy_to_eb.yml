@@ -1,7 +1,7 @@
-name: Manual Deploy Moodle to Elastic Beanstalk
+name: Deploy Moodle to Elastic Beanstalk
 
 on:
-  workflow_dispatch: # Allows you to manually trigger the deployment
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Zip Moodle Code
-        run: zip -r moodle-deployment.zip . -x "*.git*"
+        run: zip -r moodle-deployment.zip . -x "*.git*" ".github/*"
 
       - name: Deploy to Elastic Beanstalk
         uses: aws-actions/aws-elasticbeanstalk-deploy@v1
@@ -19,7 +19,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application-name: MaruMoodleLMS
-          environment-name: MaruMoodle-Prod
+          environment-name: MaruMoodle-Prod-v2
           region: ap-southeast-2
           version-label: "moodle-${{ github.run_number }}"
           deployment-package: moodle-deployment.zip
