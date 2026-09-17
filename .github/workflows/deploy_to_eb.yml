@@ -1,4 +1,4 @@
-name: Deploy Moodle to Elastic Beanstalk
+name: Deploy Moodle to AWS
 
 on:
   workflow_dispatch:
