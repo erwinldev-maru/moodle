@@ -36,4 +36,11 @@ $CFG->session_redis_port = 6379;
 $CFG->sslproxy = true;
 $CFG->reverseproxy = true;
 
+// Enable Moodle On-Screen Debugging
+@error_reporting(E_ALL | E_STRICT);
+@ini_set('display_errors', '1');
+$CFG->debug = 32767; // Equivalent to DEBUG_DEVELOPER
+$CFG->debugdisplay = 1;
+// END
+
 require_once(__DIR__ . '/lib/setup.php');
