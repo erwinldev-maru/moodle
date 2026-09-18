@@ -7,7 +7,8 @@ $CFG = new stdClass();
 // 1. Database Connection (Aurora Serverless)
 $CFG->dbtype    = 'auroramysql';
 $CFG->dblibrary = 'native';
-$CFG->dbhost    = 'maru-moodle-db-instance.crkc8w28olh1.ap-southeast-2.rds.amazonaws.com'; 
+//$CFG->dbhost    = 'maru-moodle-db-instance.crkc8w28olh1.ap-southeast-2.rds.amazonaws.com';
+$CFG->dbhost    = 'maru-moodle-db.cluster-crkc8w28olh1.ap-southeast-2.rds.amazonaws.com'
 $CFG->dbname    = 'moodle'; 
 $CFG->dbuser    = 'moodleadmin';
 $CFG->dbpass    = 'm00dleMARU2026';
