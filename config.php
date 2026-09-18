@@ -1,4 +1,8 @@
 <?php  // Moodle configuration file
+// Enable immediate PHP error reporting at the very top
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 
 unset($CFG);
 global $CFG;
@@ -36,8 +40,8 @@ $CFG->sslproxy = true;
 $CFG->reverseproxy = true;
 
 // Enable Moodle On-Screen Debugging
-@error_reporting(E_ALL | E_STRICT);
-@ini_set('display_errors', '1');
+//@error_reporting(E_ALL | E_STRICT);
+//@ini_set('display_errors', '1');
 $CFG->debug = 32767; // Equivalent to DEBUG_DEVELOPER
 $CFG->debugdisplay = 1;
 // END
