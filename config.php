@@ -22,6 +22,7 @@ $CFG->dboptions = array (
   'dbport' => 3306,
   'dbsocket' => '',
   'dbcollation' => 'utf8mb4_unicode_ci',
+  'ssl' => true,
 );
 
 // 2. Web and File Settings
