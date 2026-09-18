@@ -15,9 +15,10 @@ echo "Resolved DB IP: " . $ip . "<br>";
 
 // 2. Attempt Connection with 5-Second Timeout
 $mysqli = mysqli_init();
-$mysqli->options(MYSQLI_OPT_CONNECT_TIMEOUT, 5);
+$mysqli->options(MYSQLI_OPT_CONNECT_TIMEOUT, 30);
 
-if (@$mysqli->real_connect($ip, $user, $pass, $db, 3306)) {
+// Add MYSQLI_CLIENT_SSL flag to force a secure transport
+if (@$mysqli->real_connect($ip, $user, $pass, $db, 3306, null, MYSQLI_CLIENT_SSL)) {
     echo "<strong style='color:green;'>Successfully connected to Aurora MySQL!</strong>";
 } else {
     echo "<strong style='color:red;'>Connection Failed (Error " . mysqli_connect_errno() . "):</strong> " . mysqli_connect_error();
